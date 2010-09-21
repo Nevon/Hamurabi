@@ -14,6 +14,10 @@ function love.load()
 	--load the images
 	images = {}
 	loadfromdir(images, "gfx", "png", love.graphics.newImage)
+	local tempimg = images.advisor
+	images.advisor = newAnimation(tempimg, 116, 137, 0.2, 9)
+	local tempimg = nil
+	
 	--load the sound (effects)
 	sounds = {}
 	loadfromdir(sounds, "snd/sfx", "ogg", love.sound.newSoundData)
@@ -78,8 +82,4 @@ function love.load()
 	require("lib/achievements")
 	Gamestate.registerEvents()
 	Gamestate.switch(Gamestate.menu)
-end
-
-function love.update(dt)
-	
 end
